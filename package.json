@@ -17,7 +17,7 @@
     "tail:html": "serverless logs --function parseHtml --tail",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "serverless webpack",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && serverless webpack",
     "test:parse": "serverless invoke local --function postlightParser --path fixtures/nytimes.json",
     "test:html": "serverless invoke local --function parseHtml --path fixtures/html.json"
   },
@@ -63,5 +63,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
